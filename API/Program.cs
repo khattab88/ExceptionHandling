@@ -1,4 +1,6 @@
 
+using API.Extensions;
+
 namespace API
 {
     public class Program
@@ -17,6 +19,9 @@ namespace API
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+
+            app.UseExceptionMiddleware();
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
