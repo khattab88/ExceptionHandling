@@ -1,5 +1,6 @@
 
 using API.Extensions;
+using API.Filters;
 
 namespace API
 {
@@ -11,7 +12,12 @@ namespace API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers(config =>
+            {
+                // global exception handling filter
+                config.Filters.Add(typeof(ExceptionFilter));
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -20,7 +26,8 @@ namespace API
 
             // Configure the HTTP request pipeline.
 
-            app.UseExceptionMiddleware();
+            // exception handling middleware
+            // app.UseExceptionMiddleware();
 
             if (app.Environment.IsDevelopment())
             {

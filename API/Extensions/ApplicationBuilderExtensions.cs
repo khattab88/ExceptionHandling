@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace API.Extensions
 {
-    public static class ExceptionMiddlewareExtensions
+    public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseExceptionMiddleware(this IApplicationBuilder app)
         {
