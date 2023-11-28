@@ -25,7 +25,7 @@ namespace API.Middlewares
                 var error = new Error
                 {
                     StatusCode = context.Response.StatusCode.ToString(),
-                    Message = ex.Message,
+                    Message = $"Exception Middleware: {ex.Message}",
                 };
 
                 await context.Response.WriteAsync(error.ToString());

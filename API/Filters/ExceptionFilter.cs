@@ -12,7 +12,7 @@ namespace API.Filters
             var error = new Error
             {
                 StatusCode = HttpStatusCode.InternalServerError.ToString(),
-                Message = context.Exception.Message,
+                Message = $"Exception Filter: {context.Exception.Message}",
             };
 
             context.Result = new JsonResult(error) 
